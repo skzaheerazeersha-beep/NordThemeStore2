@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge(SystemBarStyle.dark(AndroidColor.TRANSPARENT), SystemBarStyle.dark(AndroidColor.TRANSPARENT))
         setContent {
             NordThemeStoreTheme(darkTheme = true) {
-                val dao = remember { StoreDatabase.getInstance(LocalContext.current).storeDao() }
+                val ctx = LocalContext.current; val dao = remember { StoreDatabase.getInstance(ctx).storeDao() }
                 LaunchedEffect(Unit) { if (dao.count() == 0) dao.insertAllIgnore(SeedCatalog.initialItems()) }
                 val items by dao.observeAll().collectAsState(initial = emptyList())
                 Box(Modifier.fillMaxSize().background(LocalNordPalette.current.background), Alignment.Center) {
