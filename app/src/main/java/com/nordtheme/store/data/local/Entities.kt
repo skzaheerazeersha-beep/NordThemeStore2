@@ -1,9 +1,7 @@
 package com.nordtheme.store.data.local
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import com.nordtheme.store.domain.model.ItemType
-import com.nordtheme.store.domain.model.StoreItem
+import androidx.room.*
+import com.nordtheme.store.domain.model.*
 
 @Entity(tableName = "store_items")
 data class StoreItemEntity(
